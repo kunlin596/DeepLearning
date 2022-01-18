@@ -21,8 +21,8 @@ About activation function:
 import numpy as np
 
 
-def sigmoid (x):
-    """ Sigmoid Function
+def sigmoid(x):
+    """Sigmoid Function
 
     This function takes x (either a plain number or a NumPy array),
     and perform the sigmoid function calculation.
@@ -34,8 +34,8 @@ def sigmoid (x):
     return 1 / (1 + np.exp(-x))
 
 
-def step (x):
-    """ Step Function
+def step(x):
+    """Step Function
 
     This function takes x (either a plain number or a NumPy array),
     and perform the step calculation.
@@ -58,8 +58,8 @@ def step (x):
     return y.astype(np.int)
 
 
-def relu (x):
-    """ ReLU Function
+def relu(x):
+    """ReLU Function
 
     Rectified Linear Unit. This is recently broadly used activation function.
 
@@ -72,8 +72,8 @@ def relu (x):
     return np.maximum(0, x)
 
 
-def identity (x):
-    """ Identity Function
+def identity(x):
+    """Identity Function
 
     Return the input itself. Used by the output layer.
     Often used for classification problem
@@ -84,8 +84,8 @@ def identity (x):
     return x
 
 
-def soft_max (x):
-    """ Soft Max Function
+def soft_max(x):
+    """Soft Max Function
 
     Definition, used by the output layer.
 
@@ -112,8 +112,8 @@ def soft_max (x):
     return exp_x / np.sum(exp_x)
 
 
-def mean_squared_error (y, t):
-    """ Mean Squared Error (MSE)
+def mean_squared_error(y, t):
+    """Mean Squared Error (MSE)
 
     Used as the loss function
 
@@ -127,8 +127,8 @@ def mean_squared_error (y, t):
     return np.sum((y - t) ** 2) * 0.5
 
 
-def cross_entropy_error (y, t, one_hot_label = True, batch_size = None):
-    """ Cross Entropy Error (CEE)
+def cross_entropy_error(y, t, one_hot_label=True, batch_size=None):
+    """Cross Entropy Error (CEE)
 
     Used as the loss function
 
@@ -151,7 +151,7 @@ def cross_entropy_error (y, t, one_hot_label = True, batch_size = None):
     delta = 1e-7  # protection of case of "log(0) -> inf"
 
     if one_hot_label:
-        """ One hot label presentation,
+        """One hot label presentation,
         y[np.arange(batch_size), t] will produce the right answer
 
         Example:
@@ -166,13 +166,12 @@ def cross_entropy_error (y, t, one_hot_label = True, batch_size = None):
         """
         return -(np.sum(np.log(y[np.arange(batch_size), t])) / batch_size)
     else:
-        """ Non one hot label presentation
-        """
+        """Non one hot label presentation"""
         return -np.sum(t * np.log(y + delta)) / batch_size  # log = ln
 
 
-def numerical_differentiation (func, x):
-    """ Numerical Differentiation Computation
+def numerical_differentiation(func, x):
+    """Numerical Differentiation Computation
 
     :param func:
         Function to be evaluated
@@ -185,8 +184,8 @@ def numerical_differentiation (func, x):
     return (func(x + h) - func(x - h)) / (2 * h)
 
 
-def tangent_line (func, x):
-    """ Tangent Line
+def tangent_line(func, x):
+    """Tangent Line
 
     Compute k using numerical differentiation, and use y = kx + b to compute b.
 
@@ -199,8 +198,8 @@ def tangent_line (func, x):
     return lambda t: k * t + b
 
 
-def numerical_gradient (func, x):
-    """ Numerical Gradient Implementation v1
+def numerical_gradient(func, x):
+    """Numerical Gradient Implementation v1
 
     Compute the gradient at point x of function.
 
@@ -237,8 +236,8 @@ def numerical_gradient (func, x):
     return
 
 
-def gradient_descent (func, init_x, eta, max_step):
-    """ Gradient Descent Method
+def gradient_descent(func, init_x, eta, max_step):
+    """Gradient Descent Method
 
     Gradient descent method for updating the x and find the local minimum with learning rate eta.
 

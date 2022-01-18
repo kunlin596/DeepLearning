@@ -28,7 +28,7 @@ TODO:
 import numpy as np
 
 
-def and_gate (x1, x2):
+def and_gate(x1, x2):
     x = np.array([x1, x2])
     w = np.array([0.5, 0.5])
     b = -0.7
@@ -39,7 +39,7 @@ def and_gate (x1, x2):
         return 1
 
 
-def nand_gate (x1, x2):
+def nand_gate(x1, x2):
     x = np.array([x1, x2])
     w = np.array([-0.5, -0.5])
     b = 0.7
@@ -50,7 +50,7 @@ def nand_gate (x1, x2):
         return 1
 
 
-def or_gate (x1, x2):
+def or_gate(x1, x2):
     x = np.array([x1, x2])
     w = np.array([0.5, 0.5])
     b = -0.2
@@ -61,11 +61,11 @@ def or_gate (x1, x2):
         return 1
 
 
-def xor_gate (x1, x2):
+def xor_gate(x1, x2):
     s1 = nand_gate(x1, x2)
     s2 = or_gate(x1, x2)
     return and_gate(s1, s2)
 
 
-def xnor_gate (x1, x2):
+def xnor_gate(x1, x2):
     pass

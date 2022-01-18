@@ -2,8 +2,8 @@ from functions import *
 from mnist import *
 from network import *
 
-if __name__ == '__main__':
-    x_train, t_train, x_test, t_test = get_data(one_hot_label = False)
+if __name__ == "__main__":
+    x_train, t_train, x_test, t_test = get_data(one_hot_label=False)
 
     train_size = x_train.shape[0]
     batch_size = 100
@@ -14,7 +14,6 @@ if __name__ == '__main__':
 
     x_batch = x_train[batch_mask]
     t_batch = t_train[batch_mask]
-
 
     # net = read_network('sample_weight.pkl')
     # accuracy_cnt = 0
